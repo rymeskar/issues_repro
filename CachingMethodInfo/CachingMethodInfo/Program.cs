@@ -56,6 +56,13 @@ namespace CachingMethodInfo
             var rng = new Random();
             var counts = Enumerable.Range(1, 5).Select(m => CacheIndirection((s) => { }));
             Console.Write(string.Join(", ", counts));
+            /*
+             *  The output is 
+             *  (1, 6, 6), (1, 7, 7), (1, 8, 8), (1, 9, 9), (1, 10, 10)
+             *  This means that MethodInfo is the same for all the above invocations of indirection. 
+             *  That disregards whatever customization difference you would like to make in the caching callback.
+             *  It also showcases that caching by Target or Delegate would not lead to intended behavior of saving the distributed cache initialization.
+             */
             Console.ReadLine();
         }
     }
