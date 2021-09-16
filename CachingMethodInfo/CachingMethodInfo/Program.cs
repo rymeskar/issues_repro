@@ -11,8 +11,8 @@ namespace CachingMethodInfo
             = new ConcurrentDictionary<MethodInfo, string>();
         private static readonly ConcurrentDictionary<Delegate, string> _delegateToString
                 = new ConcurrentDictionary<Delegate, string>();
-        private static readonly ConcurrentDictionary<object?, string> _targetToString
-        = new ConcurrentDictionary<object?, string>();
+        private static readonly ConcurrentDictionary<object, string> _targetToString
+        = new ConcurrentDictionary<object, string>();
 
         private static (int, int, int) CacheInternal(Action<string> lambda)
         {
